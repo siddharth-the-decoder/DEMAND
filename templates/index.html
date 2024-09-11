@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Units Sold</title>
+  <!-- Font styles -->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="login">
+    <h1>Predict Units Sold</h1>
+
+    <!-- Input fields for past four days' sales data -->
+    <form action="{{ url_for('predict') }}" method="post">
+      <input type="text" name="day_1" placeholder="Sales for Day 1" required="required" />
+      <input type="text" name="day_2" placeholder="Sales for Day 2" required="required" />
+      <input type="text" name="day_3" placeholder="Sales for Day 3" required="required" />
+      <input type="text" name="day_4" placeholder="Sales for Day 4" required="required" />
+
+      <!-- Submit button for prediction -->
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <!-- Display the prediction result -->
+    <br><br>
+    {{ prediction_text }}
+
+  </div>
+</body>
+</html>
